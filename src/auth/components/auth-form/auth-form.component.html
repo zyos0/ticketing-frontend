@@ -1,0 +1,63 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+    <span class="input-group-text">
+    <fa-icon [icon]="['far', 'envelope']"></fa-icon>
+      </span>
+    </div>
+    <input formControlName="email" type="email" id="inputEmail"
+           class="form-control"
+           [class.is-invalid]="displayError('email')"
+           placeholder="Email address"
+           autofocus=""/>
+  </div>
+
+  <div class="form-group input-group">
+    <div class="input-group-prepend">
+    <span class="input-group-text">
+    <fa-icon [icon]="['fas', 'lock']"></fa-icon>
+      </span>
+    </div>
+
+    <input type="password" formControlName="password"
+           id="inputPassword" class="form-control"
+           [class.is-invalid]="displayError('password')"
+           placeholder="Password"/>
+  </div>
+
+
+  <div class="form-group" *ngIf="signupForm">
+    <app-scope-selector class="form-control" [class.is-invalid]="displayError('scope')" formControlName="scope">
+
+    </app-scope-selector>
+  </div>
+
+  <div class="form-group">
+    <ng-content select="button"></ng-content>
+  </div>
+
+  <div *ngIf="displayError('email')"
+       class="alert alert-danger">
+
+    Invalid Email
+  </div>
+
+  <div *ngIf="signupForm && displayError('scope')"
+       class="alert alert-danger">
+    <div *ngIf="getErrors('scope', 'required')">
+      Select at least 1 profile
+    </div>
+
+  </div>
+
+  <div *ngIf="displayError('password')"
+       class="alert alert-danger">
+    Password must contain at least 8 characters, 1 number, 1 Uppercase char and 1 special char
+  </div>
+
+
+</form>
+
+
+
+

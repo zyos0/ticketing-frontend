@@ -1,0 +1,7 @@
+<div *ngFor="let scope of scopes;let i=index;" class="custom-control custom-switch custom-control-inline">
+  <input [id]="i" type="checkbox" class="custom-control-input" [tabindex]="i" [checked]="isSelected(scope.value)"
+         (click)="selectVal(scope.value)"/>
+  <label [for]="i" class="custom-control-label">{{scope.displayName}}</label>
+</div>
+
+

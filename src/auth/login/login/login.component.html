@@ -1,0 +1,23 @@
+<section class="container-fluid d-flex-single-child justify-content-center">
+  <div class="centered_middle">
+
+    <div class="card bg-light">
+      <div class="card-body mx-auto">
+        <h4 class="card-title mt-3 text-center">Login</h4>
+        <p class="text-center">Enter your credentials</p>
+        <app-auth-form [signupForm]="false" (submitted)="loginHandler($event)">
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </app-auth-form>
+        <p class="text-center">
+          New to us? <a routerLink="/auth/signup">Sign Up</a>
+        </p>
+
+        <p class="text-center">
+          <a routerLink="/auth/forgot">forgot password?</a>
+        </p>
+      </div>
+    </div>
+
+
+  </div>
+</section>

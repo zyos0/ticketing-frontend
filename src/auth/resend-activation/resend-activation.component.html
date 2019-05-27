@@ -1,0 +1,21 @@
+<section class="container-fluid d-flex-single-child justify-content-center">
+  <div class="centered_middle">
+    <div class="card bg-light">
+      <div class="card-body mx-auto">
+
+        <h4 class="card-title mt-3 text-center">Resend Activation Email</h4>
+        <p class="text-center">Please enter your  credentials</p>
+        <app-auth-form [signupForm]="false" (submitted)="submitHandler($event)">
+          <button type="submit" class="btn btn-primary btn-block">Resend</button>
+        </app-auth-form>
+        <div class="ui message">
+          New to us? <a routerLink="/auth/signup">Sign Up</a>
+        </div>
+
+        <div class="ui message">
+          <a routerLink="/auth/forgot">forgot password?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
